@@ -1,0 +1,494 @@
+// CSS Reset
+:root {
+}
+
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default margin */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul ::marker,
+ol ::marker {
+  font-size: 0;
+}
+
+/* Set core root defaults */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+// variables
+
+// Colors
+// Primary
+
+$SoftRed: hsl(7, 99%, 70%);
+$Yellow: hsl(51, 100%, 49%);
+$DarkDesaturatedCyan: hsl(167, 40%, 24%);
+$DarkBlue: hsl(198, 62%, 26%);
+$DarkModerateCyan: hsl(168, 34%, 41%);
+
+// Neutral
+
+$Verydarkdesaturatedblue: hsl(212, 27%, 19%);
+$Verydarkgrayishblue: hsl(213, 9%, 39%);
+$Darkgrayishblue: hsl(232, 10%, 55%);
+$Grayishblue: hsl(210, 4%, 67%);
+$White: hsl(0, 0%, 100%);
+
+// Typography
+
+// Body Copy
+
+//code
+
+body {
+  font-family: "Barlow", sans-serif;
+  font-family: "Fraunces", serif;
+  text-align: center;
+}
+
+img {
+  width: 100%;
+  object-fit: cover;
+}
+
+.main {
+  background-color: #42c0ff;
+  padding-inline: 2rem;
+  min-height: 800px;
+  background-image: url(images/mobile/image-header.jpg);
+  background-position: bottom center;
+  background-repeat: no-repeat;
+
+  .nav {
+    display: flex;
+    justify-content: space-between;
+    padding-block: 2rem;
+  }
+
+  h1 {
+    font-size: 3rem;
+    text-transform: uppercase;
+    color: $White;
+  }
+
+  .menu-items {
+    display: none;
+    position: fixed;
+    top: 6rem;
+    text-align: center;
+    background-color: $White;
+    width: calc(100% - 4rem);
+    padding-block: 3rem;
+  }
+
+  .menu-items div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .menu-items div * {
+    padding: 1em 2em;
+    border-radius: 100px;
+    font-size: 16px;
+    font-family: "Barlow", sans-serif;
+    color: $Darkgrayishblue;
+  }
+
+  .menu-items div :last-child {
+    background-color: $Yellow;
+    text-transform: uppercase;
+    font-family: "Fraunces", serif;
+    color: black;
+    margin-top: 1rem;
+  }
+
+  .arrow {
+    width: 50px;
+    margin-inline: auto;
+    margin-top: 6rem;
+  }
+}
+
+.section1 {
+  .first,
+  .second {
+    display: grid;
+    grid-template-columns: 1fr;
+    min-height: 760px;
+  }
+
+  .first div:last-child,
+  .second div:last-child {
+    min-height: 400px;
+    background-color: $White;
+    max-width: 600px;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-inline: auto;
+  }
+
+  p {
+    font-family: "Barlow", sans-serif;
+    color: $Grayishblue;
+  }
+
+  h2 {
+    margin-bottom: 1.5rem;
+  }
+
+  .image-sec1 {
+    min-height: 260px;
+
+    img {
+      height: 100%;
+    }
+  }
+
+  a {
+    margin-top: 1.5rem;
+    text-decoration: none;
+    color: black;
+    text-transform: uppercase;
+  }
+
+  .learn-link {
+    position: relative;
+    z-index: 1;
+  }
+
+  .learn-link::before {
+    position: absolute;
+    content: "";
+    height: 10px;
+    width: 120px;
+    bottom: -1px;
+    border-radius: 100px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: -1;
+    opacity: 60%;
+    background-color: $Yellow;
+  }
+
+  .second {
+    .learn-link::before {
+      background-color: $SoftRed;
+    }
+  }
+}
+
+.section2 {
+  .first,
+  .second {
+    min-height: 480px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    color: $Verydarkgrayishblue;
+  }
+
+  .sec2__top {
+    background-image: url(images/desktop/image-graphic-design.jpg);
+    background-position: center;
+  }
+
+  .sec2__bottom {
+    background-image: url(images/desktop/image-photography.jpg);
+    background-position: center;
+  }
+
+  .sec2__top > div,
+  .sec2__bottom > div {
+    position: absolute;
+    left: 10%;
+    top: 65%;
+    max-width: 80%;
+  }
+
+  p {
+    font-family: "Barlow", sans-serif;
+  }
+
+  h4 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+}
+
+.testimonials {
+  background-color: $White;
+  padding-block: 3rem;
+  padding-inline: 2rem;
+
+  & > div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 2rem;
+    gap: 3rem;
+  }
+
+  p {
+    font-family: "Barlow", sans-serif;
+  }
+
+  h5 {
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    font-size: 1rem;
+    color: $Darkgrayishblue;
+  }
+
+  img {
+    width: 50px;
+    border-radius: 50%;
+    margin-inline: auto;
+  }
+
+  img + p {
+    margin-block: 1rem;
+    color: $Verydarkgrayishblue;
+  }
+
+  .name {
+    font-family: "Fraunces", serif;
+  }
+
+  .name + p {
+    margin-top: 0.5rem;
+    font-size: 0.75rem;
+    color: $Grayishblue;
+  }
+}
+
+.section-images {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+div > img {
+  width: 100%;
+}
+
+.footer {
+  padding-block: 1rem;
+  font-family: "Barlow", sans-serif;
+  color: $DarkDesaturatedCyan;
+  background-color: $DarkModerateCyan;
+  .footer__top {
+    img {
+      width: 120px;
+      margin-inline: auto;
+      margin-bottom: 1rem;
+      padding-top: 2rem;
+    }
+  }
+
+  .footer__middle {
+    font-size: 14px;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-bottom: 3rem;
+  }
+
+  a {
+    text-decoration: none;
+    color: $Verydarkdesaturatedblue;
+  }
+
+  .footer__bottom {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+  }
+}
+
+@media all and (min-width: 720px) {
+  html {
+    font-size: 16px;
+  }
+
+  .main {
+    .nav {
+      align-items: center;
+    }
+
+    .menu-btn {
+      display: none;
+    }
+
+    .menu-items {
+      background-color: transparent;
+      padding: 0;
+      display: block;
+      position: unset;
+      width: auto;
+    }
+
+    .menu-items div {
+      flex-direction: row;
+      align-items: center;
+      gap: 0;
+    }
+
+    .menu-items div * {
+      color: white;
+    }
+
+    .menu-items div :last-child {
+      background-color: #6fcfff;
+
+      color: white;
+      margin-top: 0;
+      margin-left: 0.5rem;
+    }
+  }
+
+  .section1 {
+    .first,
+    .second {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 360px;
+    }
+
+    .second div:first-child {
+      order: 1;
+    }
+
+    .image-sec1 {
+      img {
+        height: 100%;
+      }
+    }
+
+    .first div:last-child,
+    .second div:last-child {
+      text-align: left;
+      width: 100%;
+      padding-block: 2rem;
+    }
+
+    .learn-link::before {
+      width: 130px;
+      left: 55px;
+    }
+  }
+
+  .section2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    .first,
+    .second {
+      min-height: clamp(400px, 50vw, 690px);
+      width: 100%;
+      height: 100%;
+    }
+
+    .sec2__top img {
+      background-image: url(images/desktop/image-graphic-design.jpg);
+    }
+
+    .sec2__bottom img {
+      background-image: url(images/desktop/image-photography.jpg);
+    }
+
+    .sec2__top > div,
+    .sec2__bottom > div {
+      top: 58%;
+    }
+  }
+
+  .section-images {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .testimonials > div {
+    max-width: 720px;
+    margin-inline: auto;
+    gap: 2rem;
+  }
+}
+@media all and (min-width: 1200px) {
+  html {
+    font-size: 18px;
+  }
+
+  .section2 {
+    .sec2__top > div,
+    .sec2__bottom > div {
+      bottom: 4rem;
+    }
+    .sec2__top > div,
+    .sec2__bottom > div {
+      top: 70%;
+    }
+  }
+
+  .section1 {
+    .learn-link::before {
+      width: 140px;
+
+      left: 12%;
+    }
+  }
+}
